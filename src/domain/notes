@@ -1,0 +1,14 @@
+
+ (x*y camerazicht)
+      int left=right horizontal sight
+      int upper, lower sight
+
+      constraint {sight}>0
+
+CombatGame :
+playerinput input: up, down, left, right
+        > maze : move(input)
+        .maze.checkForTrigger()
+            . true
+            . false
+render(Maze maze) <
