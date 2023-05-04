@@ -1,4 +1,4 @@
-package com.simpleCombatGame.environment.occupants;
+package com.simpleCombatGame.controller.blocks.environment.occupants;
 
 import com.simpleCombatGame.controller.blocks.Occupier;
 

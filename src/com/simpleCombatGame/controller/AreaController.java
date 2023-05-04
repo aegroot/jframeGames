@@ -1,6 +1,6 @@
 package com.simpleCombatGame.controller;
 
-import com.simpleCombatGame.environment.blocks.Block;
+import com.simpleCombatGame.controller.blocks.environment.blocks.Block;
 
 public interface AreaController {
      void scrollInDirection(int xDir, int yDir);

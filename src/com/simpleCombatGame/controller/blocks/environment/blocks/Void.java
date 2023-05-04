@@ -1,7 +1,7 @@
-package com.simpleCombatGame.environment.blocks;
+package com.simpleCombatGame.controller.blocks.environment.blocks;
 
 import com.simpleCombatGame.controller.blocks.Environment;
-import com.simpleCombatGame.environment.occupants.Occupant;
+import com.simpleCombatGame.controller.blocks.environment.occupants.Occupant;
 
 public class Void extends Block{
     public Void(int x, int y, Environment environment) {
