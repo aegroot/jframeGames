@@ -1,4 +1,4 @@
-package com.simpleCombatGame.environment.blocks;
+package com.simpleCombatGame.controller.blocks;
 
 import java.awt.Color;
 

@@ -1,6 +1,7 @@
 package com.simpleCombatGame.environment.blocks;
 
-import java.util.Optional;
+import com.simpleCombatGame.controller.blocks.Environment;
+import com.simpleCombatGame.environment.occupants.Occupant;
 
 public abstract class Block {
     final boolean canMoveTo;
@@ -14,11 +15,11 @@ public abstract class Block {
         this.x = x;
         this.y = y;
         this.environment = environment;
-        this.occupant=null;
+        this.occupant =null;
     }
     public Block(int x, int y, boolean canMoveTo, Occupant occupant, Environment environment){
         this(canMoveTo, x,y, environment);
-        this.occupant=occupant;
+        this.occupant = occupant;
     }
     public Occupant getOccupant(){
         return occupant;

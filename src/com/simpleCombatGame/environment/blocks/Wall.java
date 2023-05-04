@@ -1,5 +1,8 @@
 package com.simpleCombatGame.environment.blocks;
 
+import com.simpleCombatGame.controller.blocks.Environment;
+import com.simpleCombatGame.environment.occupants.Occupant;
+
 public class Wall extends Block{
 
 
@@ -7,7 +10,7 @@ public class Wall extends Block{
         super(false, x, y, Environment.wall);
     }
 
-    public Wall(int x, int y, Occupant occupant) {
-        super(x, y, false, occupant, Environment.wall);
+    public Wall(int x, int y, Occupant occupier) {
+        super(x, y, false, occupier, Environment.wall);
     }
 }

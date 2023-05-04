@@ -1,8 +1,8 @@
-package com.simpleCombatGame.environment.blocks;
+package com.simpleCombatGame.controller.blocks;
 
 import java.awt.*;
 
-public enum Environment implements BlockFunctions{
+public enum Environment implements BlockFunctions {
     empty (Color.black),wall(Color.GRAY),ground(Color.ORANGE);
 
     private final Color color;
