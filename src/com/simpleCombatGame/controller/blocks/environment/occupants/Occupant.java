@@ -11,4 +11,6 @@ public abstract class Occupant {
 
     abstract void collisionEvent();
     abstract void destroyInstance();
+
+
 }

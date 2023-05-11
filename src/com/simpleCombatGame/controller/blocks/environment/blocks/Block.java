@@ -1,12 +1,14 @@
 package com.simpleCombatGame.controller.blocks.environment.blocks;
 
 import com.simpleCombatGame.controller.blocks.Environment;
-import com.simpleCombatGame.controller.blocks.environment.occupants.Occupant;
+import com.simpleCombatGame.controller.blocks.Occupier;
+
+import java.awt.*;
 
 public abstract class Block {
     final boolean canMoveTo;
 
-    Occupant occupant;
+    Occupier occupant;
     final Environment environment;
     final int x,y;
 
@@ -15,18 +17,29 @@ public abstract class Block {
         this.x = x;
         this.y = y;
         this.environment = environment;
-        this.occupant =null;
+        this.occupant =Occupier.none;
     }
-    public Block(int x, int y, boolean canMoveTo, Occupant occupant, Environment environment){
+    public Block(int x, int y, boolean canMoveTo, Occupier occupant, Environment environment){
         this(canMoveTo, x,y, environment);
         this.occupant = occupant;
     }
-    public Occupant getOccupant(){
+    public Occupier getOccupant(){
         return occupant;
     }
 
-    public void setOccupant(Occupant occupant) {
+    public void setOccupant(Occupier occupant) {
         this.occupant = occupant;
+    }
+
+    public Environment getEnvironment() {
+        return environment;
+    }
+
+    public boolean isCanMoveTo() {
+        return canMoveTo;
+    }
+    public Color getOuterColor(){
+        return occupant!= Occupier.none?occupant.getColor() :environment.getColor();
     }
 }
 

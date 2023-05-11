@@ -1,4 +1,18 @@
 package com.simpleCombatGame.controller.blocks.environment.occupants;
 
-public class Item {
+import com.simpleCombatGame.controller.blocks.Occupier;
+
+public class Item extends Occupant{
+    public Item() {
+        super(Occupier.item);
+    }
+
+    @Override
+    void collisionEvent() {
+    }
+
+    @Override
+    void destroyInstance() {
+
+    }
 }

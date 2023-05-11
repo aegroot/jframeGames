@@ -1,30 +1,46 @@
 package com.simpleCombatGame.game;
 
 import com.simpleCombatGame.controller.AreaController;
+import com.simpleCombatGame.controller.blocks.environment.blocks.Block;
+
+import java.awt.*;
 
 public class CenteredCombatGame extends CombatGame{
 
 
     public final int cameraWidth, cameraUpper,cameraLower;
-    public AreaController controller;
 
-    public CenteredCombatGame(int areaWidth, int areaHeight, int gameWidth, int gameHeight, int cameraLower, int startPositionx, int startPositiony, AreaController controller) {
-        super(areaWidth,areaHeight,startPositionx,startPositiony,controller);
-        this.cameraWidth = gameWidth;
-        this.cameraUpper = gameHeight;
-        this.cameraLower = cameraLower;;
+    public CenteredCombatGame(int cameraWidth, int camaraHeight, int cameraLower, int startPositionx, int startPositiony, Block[][] blocks) {
+        super(blocks.length,blocks[0].length,startPositionx,startPositiony,new AreaController(startPositionx,startPositiony,blocks));
+        this.cameraWidth = cameraWidth;
+        this.cameraUpper = camaraHeight;
+        this.cameraLower = cameraLower;
     }
 
     @Override
     public void giveMovementCommand(MovementCommand command) {
         int xDir=0, yDir=0;
-        switch (command){
-            case up : yDir=1; break;
-            case down:  yDir=-1; break;
-            case left:  xDir=1; break;
-            case right:  xDir=-1; break;
-
+        switch (command) {
+            case UP -> yDir = 1;
+            case DOWN -> yDir = -1;
+            case LEFT -> xDir = 1;
+            case RIGHT -> xDir = -1;
         }
+        controller.movePlayer(xDir,yDir);
+    }
+    public Color[][]renderGame(){
+        int upperBounds= controller.getPlayerY()+cameraUpper+1;
+        int lowerBounds= controller.getPlayerY()-cameraLower;
+        int rightBounds= controller.getPlayerX()-cameraWidth;
+        int leftBounds= controller.getPlayerX()+cameraWidth+1;
 
+        return controller.getSnapShot(upperBounds, lowerBounds, leftBounds, rightBounds);
+    }
+   int getcameraHeight(){
+        return cameraUpper+cameraLower+1;
+   }
+    int getCameraWidth(){
+        return cameraWidth*2+1;
     }
 }
+

@@ -58,11 +58,11 @@ public class MainFrame extends JFrame implements KeyListener {
             for(int j=0; j<y; j++){
                 JPanel panel=new JPanel();
                 panels[i][j]=panel;
-                switch (layout.getBlocks()[i][j].getStatus()){
-                    case free:    panel.setBackground(pathColor); break;
-                    case occupied: panel.setBackground(wallColor); break;
-                    case player: panel.setBackground(playerColor); break;
-                    case empty:panel.setBackground(emptyColor); break;
+                switch (layout.getBlocks()[i][j].getStatus()) {
+                    case free -> panel.setBackground(pathColor);
+                    case occupied -> panel.setBackground(wallColor);
+                    case player -> panel.setBackground(playerColor);
+                    case empty -> panel.setBackground(emptyColor);
                 }
                 add(panel);
             }
