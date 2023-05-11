@@ -1,0 +1,24 @@
+
+Combatgame (x*y camerazicht)
+      int left=right horizontal sight
+      int upper, lower sight
+
+      ::constraint {sight>0}
+
+
+Maze (x,y dimensions)
+int height, width;
+[enum]Gamestate state {completed, game_over, not_started, started} default not_started;
+
+CombatGame :
+playerinput input: up, down, left, right  ::constraint {-1<input<1}
+        > maze : move(input)
+        .wallcheck?
+            true; return;
+            false;
+        .maze.checkForTrigger()
+            . true? trigger.triggerAction
+                .item? item.pickup
+                .enemy? game.end
+            . false?
+render(Maze maze) <
